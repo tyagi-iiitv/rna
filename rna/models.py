@@ -38,6 +38,7 @@ class SystemRequirements(TimeStampedModel):
     class Meta:
         get_latest_by = 'modified'
 
+
 class Release(TimeStampedModel):
     CHANNELS = ('Nightly', 'Aurora', 'Beta', 'Release', 'ESR')
     PRODUCTS = ('Firefox', 'Firefox for Android',
