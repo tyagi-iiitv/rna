@@ -35,6 +35,8 @@ class SystemRequirements(TimeStampedModel):
     def __unicode__(self):
         return self.code_name
 
+    class Meta:
+        get_latest_by = 'modified'
 
 class Release(TimeStampedModel):
     CHANNELS = ('Nightly', 'Aurora', 'Beta', 'Release', 'ESR')
