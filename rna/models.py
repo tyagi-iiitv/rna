@@ -30,6 +30,7 @@ class TimeStampedModel(models.Model):
 class SystemRequirements(TimeStampedModel):
     code_name = models.TextField(blank=False)
     content = models.TextField()
+    creation_date = models.DateField(auto_now=False, auto_now_add=True)
 
     def __unicode__(self):
         return self.code_name
