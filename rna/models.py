@@ -27,10 +27,10 @@ class TimeStampedModel(models.Model):
         super(TimeStampedModel, self).save(*args, **kwargs)
 
 
-class SystemRequirements(TimeStampedModel):
-    code_name = models.TextField(blank=False)
-    content = models.TextField()
-    creation_date = models.DateField(auto_now=False, auto_now_add=True)
+class SystemRequirement(TimeStampedModel):
+    code_name = models.CharField(blank=False, max_length=255)
+    content = models.TextField(blank=True)
+    creation_date = models.DateTimeField(blank=False)
 
     def __unicode__(self):
         return self.code_name
@@ -55,7 +55,8 @@ class Release(TimeStampedModel):
     is_public = models.BooleanField(default=False)
     bug_list = models.TextField(blank=True)
     bug_search_url = models.CharField(max_length=2000, blank=True)
-    system_requirements = models.ForeignKey(SystemRequirements, on_delete=models.CASCADE)
+    system_requirements = models.TextField(blank=True)
+    system_requirements_id = models.ForeignKey(SystemRequirement, blank=False, on_delete=models.CASCADE)
 
     def major_version(self):
         return self.version.split('.', 1)[0]

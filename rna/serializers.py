@@ -4,7 +4,7 @@
 
 from rest_framework import serializers
 
-from .models import Note, Release, SystemRequirements
+from .models import Note, Release, SystemRequirement
 
 
 class HyperlinkedModelSerializerWithPkField(serializers.HyperlinkedModelSerializer):
@@ -17,7 +17,7 @@ class HyperlinkedModelSerializerWithPkField(serializers.HyperlinkedModelSerializ
 
 class SystemRequirementsSerializer(HyperlinkedModelSerializerWithPkField):
     class Meta:
-        model = SystemRequirements
+        model = SystemRequirement
 
 
 class NoteSerializer(HyperlinkedModelSerializerWithPkField):

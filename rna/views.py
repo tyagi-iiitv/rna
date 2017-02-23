@@ -31,8 +31,8 @@ def auth_token(request):
         return HttpResponseForbidden()
 
 
-class SystemRequirementsViewSet(ModelViewSet):
-    queryset = models.SystemRequirements.objects.all()
+class SystemRequirementViewSet(ModelViewSet):
+    queryset = models.SystemRequirement.objects.all()
     serializer_class = serializers.SystemRequirementsSerializer
 
 
